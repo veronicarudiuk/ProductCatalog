@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5858543B2CD6CC6600BDDC20 /* Font+Aktiv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5858543A2CD6CC6600BDDC20 /* Font+Aktiv.swift */; };
+		5858543C2CD6DD8E00BDDC20 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A0082CD64DD2000573F1 /* ProductGridView.swift */; };
+		5858543F2CD6E40000BDDC20 /* AppTextMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5858543E2CD6E40000BDDC20 /* AppTextMain.swift */; };
+		585854412CD6E44B00BDDC20 /* Text+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585854402CD6E44B00BDDC20 /* Text+extension.swift */; };
+		585854462CD6E7F900BDDC20 /* AktivGroteskCorp-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585854452CD6E7F900BDDC20 /* AktivGroteskCorp-Light.ttf */; };
+		585854482CD6E7FE00BDDC20 /* AktivGroteskCorp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585854472CD6E7FE00BDDC20 /* AktivGroteskCorp-Medium.ttf */; };
+		5858544A2CD6E80500BDDC20 /* AktivGroteskCorp-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585854492CD6E80500BDDC20 /* AktivGroteskCorp-Bold.ttf */; };
 		58C49F932CD3AA22000573F1 /* ProductCatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C49F922CD3AA22000573F1 /* ProductCatalogApp.swift */; };
 		58C49F972CD3AA25000573F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C49F962CD3AA25000573F1 /* Assets.xcassets */; };
 		58C49F9A2CD3AA25000573F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C49F992CD3AA25000573F1 /* Preview Assets.xcassets */; };
@@ -22,9 +29,24 @@
 		58C49FC82CD3B243000573F1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C49FC72CD3B243000573F1 /* DataManager.swift */; };
 		58C49FCA2CD3B30B000573F1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C49FC92CD3B30B000573F1 /* HomeViewModel.swift */; };
 		58C49FCE2CD62B21000573F1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C49FCD2CD62B21000573F1 /* LoadingView.swift */; };
+		58C4A00A2CD64E67000573F1 /* ProductGridCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A0092CD64E67000573F1 /* ProductGridCardView.swift */; };
+		58C4A00C2CD64E8A000573F1 /* ProductGridCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A00B2CD64E8A000573F1 /* ProductGridCardViewModel.swift */; };
+		58C4A00E2CD64E95000573F1 /* ProductGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A00D2CD64E95000573F1 /* ProductGridViewModel.swift */; };
+		58C4A0112CD64FA0000573F1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A0102CD64FA0000573F1 /* Product.swift */; };
+		58C4A0132CD65F6F000573F1 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A0122CD65F6E000573F1 /* AsyncImage.swift */; };
+		58C4A0152CD65F8C000573F1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A0142CD65F8C000573F1 /* ImageLoader.swift */; };
+		58C4A0172CD65FA7000573F1 /* SharedImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A0162CD65FA7000573F1 /* SharedImageCache.swift */; };
+		58C4A01A2CD66016000573F1 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4A0192CD66016000573F1 /* CustomProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5858543A2CD6CC6600BDDC20 /* Font+Aktiv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Aktiv.swift"; sourceTree = "<group>"; };
+		5858543E2CD6E40000BDDC20 /* AppTextMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextMain.swift; sourceTree = "<group>"; };
+		585854402CD6E44B00BDDC20 /* Text+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+extension.swift"; sourceTree = "<group>"; };
+		585854452CD6E7F900BDDC20 /* AktivGroteskCorp-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AktivGroteskCorp-Light.ttf"; path = "../../../../../work/Freelance/freelance_store/freelance_store/Resources/Fonts/AktivGroteskCorp-Light.ttf"; sourceTree = "<group>"; };
+		585854472CD6E7FE00BDDC20 /* AktivGroteskCorp-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AktivGroteskCorp-Medium.ttf"; path = "../../../../../work/Freelance/freelance_store/freelance_store/Resources/Fonts/AktivGroteskCorp-Medium.ttf"; sourceTree = "<group>"; };
+		585854492CD6E80500BDDC20 /* AktivGroteskCorp-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AktivGroteskCorp-Bold.ttf"; path = "../../../../../work/Freelance/freelance_store/freelance_store/Resources/Fonts/AktivGroteskCorp-Bold.ttf"; sourceTree = "<group>"; };
+		5858544B2CD6E8EF00BDDC20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58C49F8F2CD3AA22000573F1 /* ProductCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C49F922CD3AA22000573F1 /* ProductCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCatalogApp.swift; sourceTree = "<group>"; };
 		58C49F962CD3AA25000573F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,6 +63,15 @@
 		58C49FC72CD3B243000573F1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		58C49FC92CD3B30B000573F1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		58C49FCD2CD62B21000573F1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		58C4A0082CD64DD2000573F1 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
+		58C4A0092CD64E67000573F1 /* ProductGridCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductGridCardView.swift; path = ../../../../../../../Downloads/ProductGridCardView.swift; sourceTree = "<group>"; };
+		58C4A00B2CD64E8A000573F1 /* ProductGridCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductGridCardViewModel.swift; path = ../../../../../../../Downloads/ProductGridCardViewModel.swift; sourceTree = "<group>"; };
+		58C4A00D2CD64E95000573F1 /* ProductGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductGridViewModel.swift; path = ../../../../../../../Downloads/ProductGridViewModel.swift; sourceTree = "<group>"; };
+		58C4A0102CD64FA0000573F1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Product.swift; path = ../../../../../../Downloads/Product.swift; sourceTree = "<group>"; };
+		58C4A0122CD65F6E000573F1 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		58C4A0142CD65F8C000573F1 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		58C4A0162CD65FA7000573F1 /* SharedImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImageCache.swift; sourceTree = "<group>"; };
+		58C4A0192CD66016000573F1 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5858543D2CD6E3F300BDDC20 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				5858543E2CD6E40000BDDC20 /* AppTextMain.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		58C49F862CD3AA22000573F1 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +137,8 @@
 			children = (
 				58C49FA82CD3AAA6000573F1 /* Font */,
 				58C49FA72CD3AA9F000573F1 /* View+extension */,
+				5858543A2CD6CC6600BDDC20 /* Font+Aktiv.swift */,
+				585854402CD6E44B00BDDC20 /* Text+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -105,6 +146,7 @@
 		58C49FA12CD3AA64000573F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5858543D2CD6E3F300BDDC20 /* Text */,
 				58C49F962CD3AA25000573F1 /* Assets.xcassets */,
 				58C49FC22CD3B06E000573F1 /* AppSizes.swift */,
 			);
@@ -114,6 +156,7 @@
 		58C49FA22CD3AA6A000573F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				58C4A00F2CD64F7C000573F1 /* Network */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,7 +164,9 @@
 		58C49FA32CD3AA71000573F1 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				58C4A0032CD64DBA000573F1 /* ClothingGridView */,
 				58C49FCD2CD62B21000573F1 /* LoadingView.swift */,
+				58C4A0192CD66016000573F1 /* CustomProgressView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -149,6 +194,7 @@
 		58C49FA62CD3AA8B000573F1 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5858544B2CD6E8EF00BDDC20 /* Info.plist */,
 				58C49F922CD3AA22000573F1 /* ProductCatalogApp.swift */,
 				58C49FAC2CD3ACFA000573F1 /* Views */,
 				58C49FAF2CD3AD11000573F1 /* ViewModels */,
@@ -167,6 +213,9 @@
 		58C49FA82CD3AAA6000573F1 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				585854452CD6E7F900BDDC20 /* AktivGroteskCorp-Light.ttf */,
+				585854492CD6E80500BDDC20 /* AktivGroteskCorp-Bold.ttf */,
+				585854472CD6E7FE00BDDC20 /* AktivGroteskCorp-Medium.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -174,6 +223,7 @@
 		58C49FA92CD3AAD9000573F1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				58C4A0182CD65FBF000573F1 /* Helpers */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -268,6 +318,51 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
+		58C4A0032CD64DBA000573F1 /* ClothingGridView */ = {
+			isa = PBXGroup;
+			children = (
+				58C4A0062CD64DC8000573F1 /* Views */,
+				58C4A0072CD64DCF000573F1 /* ViewModels */,
+			);
+			path = ClothingGridView;
+			sourceTree = "<group>";
+		};
+		58C4A0062CD64DC8000573F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				58C4A0082CD64DD2000573F1 /* ProductGridView.swift */,
+				58C4A0092CD64E67000573F1 /* ProductGridCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		58C4A0072CD64DCF000573F1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				58C4A00D2CD64E95000573F1 /* ProductGridViewModel.swift */,
+				58C4A00B2CD64E8A000573F1 /* ProductGridCardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		58C4A00F2CD64F7C000573F1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				58C4A0102CD64FA0000573F1 /* Product.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		58C4A0182CD65FBF000573F1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				58C4A0122CD65F6E000573F1 /* AsyncImage.swift */,
+				58C4A0142CD65F8C000573F1 /* ImageLoader.swift */,
+				58C4A0162CD65FA7000573F1 /* SharedImageCache.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -326,8 +421,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5858544A2CD6E80500BDDC20 /* AktivGroteskCorp-Bold.ttf in Resources */,
 				58C49F9A2CD3AA25000573F1 /* Preview Assets.xcassets in Resources */,
+				585854462CD6E7F900BDDC20 /* AktivGroteskCorp-Light.ttf in Resources */,
 				58C49F972CD3AA25000573F1 /* Assets.xcassets in Resources */,
+				585854482CD6E7FE00BDDC20 /* AktivGroteskCorp-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,18 +436,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				585854412CD6E44B00BDDC20 /* Text+extension.swift in Sources */,
+				5858543C2CD6DD8E00BDDC20 /* ProductGridView.swift in Sources */,
+				58C4A00E2CD64E95000573F1 /* ProductGridViewModel.swift in Sources */,
 				58C49FC52CD3B1E3000573F1 /* DependancyContainer.swift in Sources */,
 				58C49FB32CD3AD50000573F1 /* AppRouter.swift in Sources */,
 				58C49FAE2CD3AD06000573F1 /* RootView.swift in Sources */,
 				58C49FC12CD3B050000573F1 /* View+extension.swift in Sources */,
+				58C4A01A2CD66016000573F1 /* CustomProgressView.swift in Sources */,
+				5858543F2CD6E40000BDDC20 /* AppTextMain.swift in Sources */,
+				58C4A0112CD64FA0000573F1 /* Product.swift in Sources */,
 				58C49FBF2CD3AED1000573F1 /* PreloaderView.swift in Sources */,
 				58C49FBD2CD3AECA000573F1 /* FavoritesView.swift in Sources */,
 				58C49FB12CD3AD1C000573F1 /* RootViewModel.swift in Sources */,
+				58C4A0152CD65F8C000573F1 /* ImageLoader.swift in Sources */,
 				58C49FCA2CD3B30B000573F1 /* HomeViewModel.swift in Sources */,
+				58C4A0172CD65FA7000573F1 /* SharedImageCache.swift in Sources */,
+				58C4A0132CD65F6F000573F1 /* AsyncImage.swift in Sources */,
 				58C49FBB2CD3AEC5000573F1 /* HomeView.swift in Sources */,
+				58C4A00C2CD64E8A000573F1 /* ProductGridCardViewModel.swift in Sources */,
 				58C49FC82CD3B243000573F1 /* DataManager.swift in Sources */,
+				58C4A00A2CD64E67000573F1 /* ProductGridCardView.swift in Sources */,
 				58C49F932CD3AA22000573F1 /* ProductCatalogApp.swift in Sources */,
 				58C49FCE2CD62B21000573F1 /* LoadingView.swift in Sources */,
+				5858543B2CD6CC6600BDDC20 /* Font+Aktiv.swift in Sources */,
 				58C49FC32CD3B06E000573F1 /* AppSizes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +597,7 @@
 				DEVELOPMENT_TEAM = 3N225TZ4SD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProductCatalog/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -520,6 +631,7 @@
 				DEVELOPMENT_TEAM = 3N225TZ4SD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProductCatalog/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

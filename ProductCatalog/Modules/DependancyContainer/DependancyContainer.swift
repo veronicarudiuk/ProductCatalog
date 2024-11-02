@@ -26,5 +26,8 @@ extension DependencyContainer {
     //MARK: - static func
     public static func registerClients() {
 
+        shared.register(interface: ImageCacheProvider.self,
+                        service: SharedImageCache())
+        
     }
 }
