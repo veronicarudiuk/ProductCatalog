@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// Loading view with three animated circles to indicate loading state.
+/// The circles expand and contract to create a pulsing animation.
+
 struct LoadingView: View {
     @State private var loading = false
     

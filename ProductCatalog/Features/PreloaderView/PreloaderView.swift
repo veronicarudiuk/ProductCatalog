@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// A view that displays a preloader screen with a loading animation.
+/// Used as a temporary screen while data is being loaded in the app.
+
 struct PreloaderView: View {
 
     var body: some View {
@@ -27,11 +30,5 @@ struct PreloaderView: View {
             }
         }
         .setBGColor()
-    }
-}
-
-struct PreloaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        PreloaderView()
     }
 }

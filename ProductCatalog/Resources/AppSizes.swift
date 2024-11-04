@@ -26,7 +26,7 @@ enum AppSizes {
         case .gridCardWidth:
             return (AppSizes.screenWidth.value - AppSizes.w16.value - AppSizes.w3.value) / 2
         case .gridCardHeight:
-            return 180
+            return 150
          
         case .h24:
             return screenHeight * 0.028

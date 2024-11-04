@@ -1,5 +1,7 @@
 import SwiftUI
 
+/// DependencyContainer is a simple dependency injection container that allows registering and resolving services within the app.
+
 final class DependencyContainer {
     
     //MARK: - static instance
@@ -24,10 +26,12 @@ final class DependencyContainer {
 extension DependencyContainer {
     
     //MARK: - static func
-    public static func registerClients() {
-
-        shared.register(interface: ImageCacheProvider.self,
-                        service: SharedImageCache())
+    func registerClients() {
         
+        register(interface: ImageCacheProvider.self,
+                 service: SharedImageCache())
+        
+        register(interface: DummyjsonAPIProvider.self,
+                 service: DummyjsonAPI())
     }
 }

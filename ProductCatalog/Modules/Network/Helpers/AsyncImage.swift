@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// AsyncImage is a custom SwiftUI view that loads and displays an image from a URL asynchronously.
+/// It uses ImageLoader to fetch and cache the image.
+
 struct AsyncImage: View {
     @ObservedObject private var loader: ImageLoader
     
@@ -30,7 +33,6 @@ struct AsyncImage: View {
 }
 
 extension AsyncImage {
-    //MARK: - content
     private var content: some View {
         ZStack {
             if let image = loader.image {

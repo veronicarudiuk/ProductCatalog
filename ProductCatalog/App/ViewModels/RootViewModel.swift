@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// RootViewModel is responsible for managing the current view state of the app.
+/// It initially shows a preloader view, then transitions to the main view after loading initial data.
+
 final class RootViewModel: ObservableObject {
     enum CurrentViewType {
         case preloader
@@ -9,12 +12,12 @@ final class RootViewModel: ObservableObject {
     @Published private(set) var currentView: CurrentViewType
     
     init(conteiner: DependencyContainer = .shared) {
-        DependencyContainer.registerClients()
+        conteiner.registerClients()
         currentView = .preloader
     }
     
     func loadInitialData() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             guard let self else { return }
             currentView = .main
         }
