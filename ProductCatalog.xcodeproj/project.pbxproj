@@ -27,9 +27,9 @@
 		5858546C2CD964E300BDDC20 /* ProductGridCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5858546B2CD964E300BDDC20 /* ProductGridCardView.swift */; };
 		585854702CD96BCC00BDDC20 /* View+ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5858546F2CD96BCC00BDDC20 /* View+ProductDetailView.swift */; };
 		585854722CD96C1200BDDC20 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585854712CD96C1200BDDC20 /* ProductDetailView.swift */; };
-		585854752CD9A7F100BDDC20 /* AktivGroteskCorp-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585854742CD9A7F100BDDC20 /* AktivGroteskCorp-Bold.ttf */; };
-		585854772CD9A7F800BDDC20 /* AktivGroteskCorp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585854762CD9A7F800BDDC20 /* AktivGroteskCorp-Medium.ttf */; };
 		585854792CD9A85A00BDDC20 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585854782CD9A85A00BDDC20 /* Product.swift */; };
+		5858547D2CD9AB1E00BDDC20 /* AktivGroteskCorp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5858547C2CD9AB1E00BDDC20 /* AktivGroteskCorp-Medium.ttf */; };
+		5858547F2CD9AB2300BDDC20 /* AktivGroteskCorp-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5858547E2CD9AB2300BDDC20 /* AktivGroteskCorp-Bold.ttf */; };
 		58C49F932CD3AA22000573F1 /* ProductCatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C49F922CD3AA22000573F1 /* ProductCatalogApp.swift */; };
 		58C49F972CD3AA25000573F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C49F962CD3AA25000573F1 /* Assets.xcassets */; };
 		58C49F9A2CD3AA25000573F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C49F992CD3AA25000573F1 /* Preview Assets.xcassets */; };
@@ -71,9 +71,9 @@
 		5858546B2CD964E300BDDC20 /* ProductGridCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridCardView.swift; sourceTree = "<group>"; };
 		5858546F2CD96BCC00BDDC20 /* View+ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ProductDetailView.swift"; sourceTree = "<group>"; };
 		585854712CD96C1200BDDC20 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
-		585854742CD9A7F100BDDC20 /* AktivGroteskCorp-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AktivGroteskCorp-Bold.ttf"; path = "../../../../untitled folder/AktivGroteskCorp-Bold.ttf"; sourceTree = "<group>"; };
-		585854762CD9A7F800BDDC20 /* AktivGroteskCorp-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AktivGroteskCorp-Medium.ttf"; path = "../../../../untitled folder/AktivGroteskCorp-Medium.ttf"; sourceTree = "<group>"; };
 		585854782CD9A85A00BDDC20 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		5858547C2CD9AB1E00BDDC20 /* AktivGroteskCorp-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AktivGroteskCorp-Medium.ttf"; sourceTree = "<group>"; };
+		5858547E2CD9AB2300BDDC20 /* AktivGroteskCorp-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AktivGroteskCorp-Bold.ttf"; sourceTree = "<group>"; };
 		58C49F8F2CD3AA22000573F1 /* ProductCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C49F922CD3AA22000573F1 /* ProductCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCatalogApp.swift; sourceTree = "<group>"; };
 		58C49F962CD3AA25000573F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -258,8 +258,8 @@
 		58C49FA82CD3AAA6000573F1 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				585854742CD9A7F100BDDC20 /* AktivGroteskCorp-Bold.ttf */,
-				585854762CD9A7F800BDDC20 /* AktivGroteskCorp-Medium.ttf */,
+				5858547E2CD9AB2300BDDC20 /* AktivGroteskCorp-Bold.ttf */,
+				5858547C2CD9AB1E00BDDC20 /* AktivGroteskCorp-Medium.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -403,10 +403,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5858547D2CD9AB1E00BDDC20 /* AktivGroteskCorp-Medium.ttf in Resources */,
+				5858547F2CD9AB2300BDDC20 /* AktivGroteskCorp-Bold.ttf in Resources */,
 				58C49F9A2CD3AA25000573F1 /* Preview Assets.xcassets in Resources */,
 				58C49F972CD3AA25000573F1 /* Assets.xcassets in Resources */,
-				585854752CD9A7F100BDDC20 /* AktivGroteskCorp-Bold.ttf in Resources */,
-				585854772CD9A7F800BDDC20 /* AktivGroteskCorp-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
