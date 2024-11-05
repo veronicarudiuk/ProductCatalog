@@ -32,7 +32,6 @@ ___
 ### Getting Started
 
 1.	Clone the Repository:
-
 git clone https://github.com/yourusername/product-catalog-app.git
 
 2.	Open the Project:
@@ -77,5 +76,7 @@ ___
 
 iOS 16.0+
 Xcode 14+
+
+___
 
 Feel free to edit the sections as needed or add specific details related to your project setup and usage.
