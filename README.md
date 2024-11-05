@@ -32,7 +32,7 @@ ___
 ### Getting Started
 
 1.	Clone the Repository:
-git clone https://github.com/yourusername/product-catalog-app.git
+git clone https://github.com/veronicarudiuk/ProductCatalog.git 
 
 2.	Open the Project:
 Open ProductCatalogApp.xcodeproj in Xcode.
