@@ -27,9 +27,7 @@ ___
 * Modular Components: Key components like ProductDetailView, LoadingView, and ScrollTrackingView are modular and reusable.
 
 ![light mode](https://github.com/user-attachments/assets/9fc3c449-02f8-48e4-a4b7-7e26a99b0515)
-
 ![dark mode](https://github.com/user-attachments/assets/bcf69f28-e0f2-48c5-aed5-74dabf5fae54)
-
 
 ### Getting Started
 
