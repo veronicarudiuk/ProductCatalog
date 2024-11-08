@@ -37,7 +37,7 @@ final class DummyjsonAPI: APIClient, DummyjsonAPIProvider {
 
         currentTask?.cancel()
         
-        execute(request) { (result: Result<Response<ProductResponse>, Error>) in
+        currentTask = execute(request) { (result: Result<Response<ProductResponse>, Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):

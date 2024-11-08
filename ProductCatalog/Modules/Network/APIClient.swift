@@ -4,15 +4,15 @@ import Foundation
 
 protocol APIClient {
     var session: URLSession { get }
-    func execute<T: Decodable>(_ request: URLRequest, completion: @escaping (Result<Response<T>, Error>) -> Void)
+    func execute<T: Decodable>(_ request: URLRequest, completion: @escaping (Result<Response<T>, Error>) -> Void) -> URLSessionDataTask 
 }
 
 extension APIClient {
     
     // Executes a network request and handles response or error
-    func execute<T: Decodable>(_ request: URLRequest, completion: @escaping (Result<Response<T>, Error>) -> Void) {
+    func execute<T: Decodable>(_ request: URLRequest, completion: @escaping (Result<Response<T>, Error>) -> Void) -> URLSessionDataTask {
         
-        session.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
                 debugOutput(error)
                 if (error as NSError).code == NSURLErrorNotConnectedToInternet {
@@ -46,7 +46,10 @@ extension APIClient {
             case .failure(let error):
                 completion(.failure(error))
             }
-        }.resume()
+        }
+        
+        task.resume()
+        return task
     }
 }
 
