@@ -4,6 +4,7 @@ import Combine
 /// ViewModel for the HomeView. Manages product data and handles pagination and loading states.
 /// Provides a subject for showing product details.
 
+@MainActor
 final class HomeViewModel: ObservableObject {
     private var dummyjsonAPI: DummyjsonAPIProvider
     
@@ -24,10 +25,12 @@ final class HomeViewModel: ObservableObject {
     
     // Defines columns for grid layout
     private(set) var columns = [
-           GridItem(.flexible(), spacing: AppSizes.w8.value),
-           GridItem(.flexible(), spacing: AppSizes.w8.value),
-           GridItem(.flexible(), spacing: AppSizes.w8.value)
-       ]
+        GridItem(.flexible(), spacing: AppSizes.w8.value),
+        GridItem(.flexible(), spacing: AppSizes.w8.value),
+        GridItem(.flexible(), spacing: AppSizes.w8.value)
+    ]
+    
+    private var tasks: [Task<Void, Never>] = []
     
     init(conteiner: DependencyContainer = .shared) {
         dummyjsonAPI = conteiner.resolve()
@@ -35,28 +38,33 @@ final class HomeViewModel: ObservableObject {
         loadProducts()
     }
     
+    func cancelTasks() {
+        tasks.forEach({ $0.cancel() })
+        tasks = []
+    }
+    
     // Loads products with current pagination settings
     func loadProducts() {
         guard !isLoading else { return }
         isLoading = true
         let skip = String(currentPage * limit)
+        cancelTasks()
         
-        dummyjsonAPI.getProducts(skip: skip, limit: limit) { [weak self] result in
-            guard let self else { return }
-            
-            isLoading = false
-            
-            switch result {
-            case .success(let newProducts):
+        
+        let task = Task {
+            do {
+                let newProducts = try await dummyjsonAPI.getProducts(skip: skip, limit: limit)
                 products.append(contentsOf: newProducts)
                 currentPage += 1
-                
-            case .failure(let error):
+                isLoading = false
+            } catch {
                 alertModel = AlertError(message: error.localizedDescription,
                                         alertButton: .default(Text(alert: .retry), action: loadProducts))
                 debugOutput(error)
+                isLoading = false
             }
         }
+        tasks.append(task)
     }
     
     func refreshProducts() {

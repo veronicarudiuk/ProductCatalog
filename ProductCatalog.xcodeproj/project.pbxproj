@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5810D0352CFF6EB200ED3D12 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5810D0342CFF6EB200ED3D12 /* UIImage+extension.swift */; };
 		5858543B2CD6CC6600BDDC20 /* Font+Aktiv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5858543A2CD6CC6600BDDC20 /* Font+Aktiv.swift */; };
 		5858543F2CD6E40000BDDC20 /* AppTextMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5858543E2CD6E40000BDDC20 /* AppTextMain.swift */; };
 		585854412CD6E44B00BDDC20 /* Text+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585854402CD6E44B00BDDC20 /* Text+extension.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5810D0342CFF6EB200ED3D12 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		5858543A2CD6CC6600BDDC20 /* Font+Aktiv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Aktiv.swift"; sourceTree = "<group>"; };
 		5858543E2CD6E40000BDDC20 /* AppTextMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextMain.swift; sourceTree = "<group>"; };
 		585854402CD6E44B00BDDC20 /* Text+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+extension.swift"; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				58C49FA82CD3AAA6000573F1 /* Font */,
 				58C49FA72CD3AA9F000573F1 /* View+extension */,
 				5858543A2CD6CC6600BDDC20 /* Font+Aktiv.swift */,
+				5810D0342CFF6EB200ED3D12 /* UIImage+extension.swift */,
 				585854402CD6E44B00BDDC20 /* Text+extension.swift */,
 				585854562CD913B100BDDC20 /* GlobalFunctions.swift */,
 			);
@@ -582,6 +585,7 @@
 				585854642CD95B8B00BDDC20 /* ScrollTrackingView.swift in Sources */,
 				585854552CD9137800BDDC20 /* Errors.swift in Sources */,
 				58C4A0152CD65F8C000573F1 /* ImageLoader.swift in Sources */,
+				5810D0352CFF6EB200ED3D12 /* UIImage+extension.swift in Sources */,
 				585854702CD96BCC00BDDC20 /* View+ProductDetailView.swift in Sources */,
 				58C49FCA2CD3B30B000573F1 /* HomeViewModel.swift in Sources */,
 				58C4A0172CD65FA7000573F1 /* SharedImageCache.swift in Sources */,

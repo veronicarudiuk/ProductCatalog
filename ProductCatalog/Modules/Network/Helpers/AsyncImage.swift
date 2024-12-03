@@ -5,6 +5,7 @@ import SwiftUI
 
 struct AsyncImage: View {
     @ObservedObject private var loader: ImageLoader
+//    @StateObject private var loader: ImageLoader
     
     private let contentMode: ContentMode
     private var width: CGFloat
@@ -29,12 +30,18 @@ struct AsyncImage: View {
     
     var body: some View {
         content
+            .onAppear {
+                Task {
+                    await loader.fetchImage()
+                }
+            }
     }
 }
 
 extension AsyncImage {
     private var content: some View {
         ZStack {
+            
             if let image = loader.image {
                 Image(uiImage: image)
                     .resizable()

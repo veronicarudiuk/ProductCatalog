@@ -3,7 +3,7 @@ import Foundation
 /// Implements DummyjsonAPIProvider to handle product requests through APIClient.
 
 protocol DummyjsonAPIProvider {
-    func getProducts(skip: String, limit: Int, completion: @escaping (Result<[Product], Error>) -> Void)
+    func getProducts(skip: String, limit: Int) async throws -> [Product]
 }
 
 final class DummyjsonAPI: APIClient, DummyjsonAPIProvider {
@@ -24,28 +24,12 @@ final class DummyjsonAPI: APIClient, DummyjsonAPIProvider {
     convenience init() {
         self.init(configuration: .ephemeral)
     }
-
-    func getProducts(skip: String, limit: Int, completion: @escaping (Result<[Product], Error>) -> Void) {
+    
+    func getProducts(skip: String, limit: Int) async throws -> [Product] {
         let endpoint = makeEndPoint(with: .products, and: [.limit(String(limit)), .skip(skip)])
+        let request = try makeURLRequest(with: .dummyjson(endpoint: endpoint), and: .GET)
         
-        guard let request = try? makeURLRequest(with: .dummyjson(endpoint: endpoint), and: .GET) else {
-            DispatchQueue.main.async {
-                completion(.failure(NetworkError.requestFailed))
-            }
-            return
-        }
-
-        currentTask?.cancel()
-        
-        currentTask = execute(request) { (result: Result<Response<ProductResponse>, Error>) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let response):
-                    completion(.success(response.value.products))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-        }
+        let response: Response<ProductResponse> = try await execute(request)
+        return response.value.products
     }
 }
