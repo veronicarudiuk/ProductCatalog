@@ -35,6 +35,9 @@ struct HomeView: View {
         .refreshable {
             viewModel.refreshProducts()
         }
+        .onDisappear {
+            viewModel.cancelTasks()
+        }
     }
     
     private var grids: some View {

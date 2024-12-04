@@ -6,7 +6,6 @@ import SwiftUI
 struct ScrollTrackingView<Content: View>: View {
     @Binding var isScrolledDown: Bool
     @State private var showScrollToTopButton = false
-    @Binding var offset: CGFloat?
     
     let content: Content
     
@@ -15,10 +14,8 @@ struct ScrollTrackingView<Content: View>: View {
     private let idScroll: String = "scroll"
     
     init(isScrolledDown: Binding<Bool>,
-         offset: Binding<CGFloat?>? = nil,
          @ViewBuilder content: () -> Content) {
         self._isScrolledDown = isScrolledDown
-        self._offset = offset ?? .constant(nil)
         self.content = content()
     }
     
@@ -35,17 +32,10 @@ struct ScrollTrackingView<Content: View>: View {
                             Color.clear
                                 .frame(height: 0)
                                 .onChange(of: geometry.frame(in: .named(idScroll)).minY) { value in
-                                    offset = value
-                                    if value < -scrollThreshold {
-                                        isScrolledDown = true
-                                        showScrollToTopButton = true
-                                    } else if value >= 0 {
-                                        isScrolledDown = false
-                                        showScrollToTopButton = false
-                                    } else if value > -scrollThreshold {
-                                        isScrolledDown = true
-                                        showScrollToTopButton = false
-                                    }
+                                    let delta = abs(value)
+                                        if delta > 30 {
+                                            updateScrollState(value)
+                                        }
                                 }
                         }
                         .frame(height: 0)
@@ -64,6 +54,19 @@ struct ScrollTrackingView<Content: View>: View {
                     }
                 }
             }
+        }
+    }
+    
+    private func updateScrollState(_ value: CGFloat) {
+        if value < -scrollThreshold {
+            isScrolledDown = true
+            showScrollToTopButton = true
+        } else if value >= 0 {
+            isScrolledDown = false
+            showScrollToTopButton = false
+        } else if value > -scrollThreshold {
+            isScrolledDown = true
+            showScrollToTopButton = false
         }
     }
 }

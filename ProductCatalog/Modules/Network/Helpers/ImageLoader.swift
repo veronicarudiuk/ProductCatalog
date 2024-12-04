@@ -1,91 +1,54 @@
 import SwiftUI
 
-/// ImageLoader handles the asynchronous loading and caching of images from a URL.
+/// ImageLoader handles the asynchronous loading and caching of images from a URL using Swift Concurrency.
 
+@MainActor
 final class ImageLoader: ObservableObject {
-    
     @Published var image: UIImage?
-    
-    var isLoading = false
-    var url: URL?
+    @Published var isLoading = true
+    private let url: URL?
     private var cache: ImageCacheProvider
-    private var dataTask: URLSessionDataTask?
     
-    init(url: URL?,
-         conteiner: DependencyContainer = .shared) {
+    init(url: URL?, container: DependencyContainer = .shared) {
         self.url = url
-        cache = conteiner.resolve()
-        load()
-    }
-    
-    deinit {
-        cancel()
+        self.cache = container.resolve()
     }
 }
 
 extension ImageLoader {
-    // Loads the image from cache or network if not already loading
-    private func load() {
-        guard !isLoading, let url = url else { return }
+    func fetchImage() async {
+        guard let url = url else { return }
         
         if let cachedImage = cache[url] {
+            isLoading = false
             image = cachedImage
             return
         }
         
-        isLoading = true
-        
-        ImageLoader.imageProcessingQueue.async { [weak self] in
-            guard let self else { return }
-            
-            dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                
-                DispatchQueue.main.async { [weak self] in
-                    guard let self else { return }
-                    
-                    isLoading = false
-                    
-                    if error != nil { return }
-                    
-                    if let data = data, let loadedImage = UIImage(data: data) {
-                        let resizedImage = resizeImage(image: loadedImage, targetSize: CGSize(width: 64, height: 64))
-                        cache[url] = resizedImage
-                        image = resizedImage
-                    }
-                }
-            }
-            
-            dataTask?.resume()
-        }
-    }
-    
-    func cancel() {
-        dataTask?.cancel()
+        let newImage = try? await downloadWithAsync(url)
         isLoading = false
+        self.image = newImage
     }
     
-    // Resizes the image to fit within the target size, preserving aspect ratio
-    private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-        let widthRatio = targetSize.width / image.size.width
-        let heightRatio = targetSize.height / image.size.height
-        let scaleFactor = min(widthRatio, heightRatio)
-        
-        let scaledImageSize = CGSize(
-            width: image.size.width * scaleFactor,
-            height: image.size.height * scaleFactor
-        )
-        
-        let renderer = UIGraphicsImageRenderer(size: targetSize)
-        return renderer.image { _ in
-            let xOffset = (targetSize.width - scaledImageSize.width) / 2
-            let yOffset = (targetSize.height - scaledImageSize.height) / 2
-            image.draw(in: CGRect(origin: CGPoint(x: xOffset, y: yOffset), size: scaledImageSize))
+    func downloadWithAsync(_ url: URL) async throws -> UIImage? {
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url, delegate: nil)
+            return handleResponse(url: url, data: data, response: response)
+        } catch {
+            throw error
         }
     }
-}
-
-extension ImageLoader {
     
-    // MARK: - Static instance
-    private static let imageProcessingQueue = DispatchQueue(label: "image-processing")
+    func handleResponse(url: URL, data: Data?, response: URLResponse?) -> UIImage? {
+        guard
+            let data = data,
+            let image = UIImage(data: data),
+            let response = response as? HTTPURLResponse,
+            response.statusCode >= 200 && response.statusCode < 300 else {
+            return nil
+        }
+        let resizedImage = image.resized(to: CGSize(width: 64, height: 64))
+        cache[url] = resizedImage
+        return resizedImage
+    }
 }

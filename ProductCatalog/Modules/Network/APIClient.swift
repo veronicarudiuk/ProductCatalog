@@ -4,85 +4,33 @@ import Foundation
 
 protocol APIClient {
     var session: URLSession { get }
-    func execute<T: Decodable>(_ request: URLRequest, completion: @escaping (Result<Response<T>, Error>) -> Void) -> URLSessionDataTask 
+    func execute<T: Decodable>(_ request: URLRequest) async throws -> Response<T>
 }
 
 extension APIClient {
-    
-    // Executes a network request and handles response or error
-    func execute<T: Decodable>(_ request: URLRequest, completion: @escaping (Result<Response<T>, Error>) -> Void) -> URLSessionDataTask {
-        
-        let task = session.dataTask(with: request) { data, response, error in
-            if let error = error {
-                debugOutput(error)
-                if (error as NSError).code == NSURLErrorNotConnectedToInternet {
-                    completion(.failure(NetworkError.noInternetConnection))
-                } else {
-                    debugOutput(error)
-                    completion(.failure(NetworkError.transportError(error)))
-                }
-                return
+    func execute<T: Decodable>(_ request: URLRequest) async throws -> Response<T> {
+        do {
+            let (data, response) = try await session.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? -1
+                throw statusCode >= 400 && statusCode < 500 ? NetworkError.validationError(String(statusCode)) : NetworkError.serverError
             }
             
-            // Check if the response is valid
-            guard let httpResponse = response as? HTTPURLResponse,
-                  let data = data,
-                  200..<300 ~= httpResponse.statusCode else {
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                switch statusCode {
-                case 400...499:
-                    completion(.failure(NetworkError.validationError(String(statusCode))))
-                default:
-                    completion(.failure(NetworkError.serverError))
-                }
-                return
+            let decodedData: T = try decodeData(T.self, from: data)
+            return Response(value: decodedData, response: httpResponse)
+        } catch {
+            if (error as NSError).code == NSURLErrorNotConnectedToInternet {
+                throw NetworkError.noInternetConnection
             }
-            
-            // Decode the response data into the expected type
-            let result: Result<T, Error> = decodeData(T.self, from: data)
-            switch result {
-            case .success(let value):
-                completion(.success(Response(value: value, response: httpResponse)))
-            case .failure(let error):
-                completion(.failure(error))
-            }
+            throw NetworkError.transportError(error)
         }
-        
-        task.resume()
-        return task
     }
-}
-
-extension APIClient {
     
-    // Decodes JSON data into a specified type
-    func decodeData<T: Decodable>(_ type: T.Type, from data: Data) -> Result<T, Error> {
+    func decodeData<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        do {
-            let decodedData = try decoder.decode(T.self, from: data)
-            return .success(decodedData)
-        } catch {
-            debugOutput("Decoding error: \(error)")
-            debugOutput("Decoding error localized description: \(error.localizedDescription)")
-            
-            if let decodingError = error as? DecodingError {
-                switch decodingError {
-                case .keyNotFound(let key, _):
-                    debugOutput("Key not found: \(key.stringValue)")
-                case .typeMismatch(let type, let context):
-                    debugOutput("Type mismatch: \(type), context: \(context.debugDescription)")
-                case .valueNotFound(let value, let context):
-                    debugOutput("Value not found: \(value), context: \(context.debugDescription)")
-                case .dataCorrupted(let context):
-                    debugOutput("Data corrupted: \(context.debugDescription)")
-                @unknown default:
-                    debugOutput("Unknown decoding error")
-                }
-            }
-            
-            return .failure(error)
-        }
+        return try decoder.decode(T.self, from: data)
     }
 }
 
