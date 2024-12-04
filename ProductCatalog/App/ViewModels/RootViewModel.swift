@@ -4,12 +4,7 @@ import SwiftUI
 /// It initially shows a preloader view, then transitions to the main view after loading initial data.
 
 final class RootViewModel: ObservableObject {
-    enum CurrentViewType {
-        case preloader
-        case main
-    }
-    
-    @Published private(set) var currentView: CurrentViewType
+    @Published private(set) var currentView: Page
     
     init(conteiner: DependencyContainer = .shared) {
         conteiner.registerClients()
