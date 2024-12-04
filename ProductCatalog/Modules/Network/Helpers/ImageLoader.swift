@@ -9,9 +9,9 @@ final class ImageLoader: ObservableObject {
     private let url: URL?
     private var cache: ImageCacheProvider
     
-    init(url: URL?, container: DependencyContainer = .shared) {
+    init(url: URL?, imageCache: ImageCacheProvider) {
         self.url = url
-        self.cache = container.resolve()
+        self.cache = imageCache
     }
 }
 

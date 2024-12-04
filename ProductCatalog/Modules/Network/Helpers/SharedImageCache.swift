@@ -6,7 +6,7 @@ protocol ImageCacheProvider {
     subscript(_ url: URL) -> UIImage? { get set }
 }
 
-final class SharedImageCache: ImageCacheProvider {
+final class ImageCache: ImageCacheProvider {
 
     private let cache: NSCache<NSURL, UIImage> = {
         let cache = NSCache<NSURL, UIImage>()

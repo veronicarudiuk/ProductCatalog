@@ -6,6 +6,7 @@ import Combine
 
 struct ProductDetailView: View {
     @Binding var info: Product?
+    let imageCache: ImageCacheProvider
     
     var body: some View {
         VStack(spacing: 0) {
@@ -90,7 +91,10 @@ extension ProductDetailView {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 6) {
                     ForEach(info.images, id: \.self) { imageUrl in
-                        AsyncImage(link: imageUrl, width: AppSizes.screenWidth.value / 3, height: AppSizes.screenWidth.value / 3)
+                        AsyncImage(link: imageUrl,
+                                   width: AppSizes.screenWidth.value / 3,
+                                   height: AppSizes.screenWidth.value / 3,
+                                   imageCache: imageCache)
                             .clipped()
                     }
                     .setMainHorizontalPadding()

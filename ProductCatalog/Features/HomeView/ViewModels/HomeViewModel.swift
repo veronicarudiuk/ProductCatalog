@@ -6,7 +6,8 @@ import Combine
 
 @MainActor
 final class HomeViewModel: ObservableObject {
-    private var dummyjsonAPI: DummyjsonAPIProvider
+    private let dummyjsonAPI: DummyjsonAPIProvider
+    let imageCache: ImageCacheProvider
     
     @Published var isScrolledDown: Bool = false
     
@@ -32,8 +33,9 @@ final class HomeViewModel: ObservableObject {
     
     private var tasks: [Task<Void, Never>] = []
     
-    init(conteiner: DependencyContainer = .shared) {
-        dummyjsonAPI = conteiner.resolve()
+    init(dummyjsonAPI: DummyjsonAPIProvider, imageCache: ImageCacheProvider) {
+        self.dummyjsonAPI = dummyjsonAPI
+        self.imageCache = imageCache
         setupSubscriptions()
         loadProducts()
     }

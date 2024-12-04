@@ -5,7 +5,6 @@ import SwiftUI
 
 struct AsyncImage: View {
     @ObservedObject private var loader: ImageLoader
-//    @StateObject private var loader: ImageLoader
     
     private let contentMode: ContentMode
     private var width: CGFloat
@@ -18,9 +17,11 @@ struct AsyncImage: View {
          width: CGFloat = 64,
          height: CGFloat = 64,
          cornerRadius: CGFloat = 0,
-         placeholder: ImageResource = .placeholder
+         placeholder: ImageResource = .placeholder,
+         imageCache: ImageCacheProvider
     ) {
-        _loader = ObservedObject(wrappedValue: ImageLoader(url: URL(string: link)))
+        _loader = ObservedObject(wrappedValue: ImageLoader(url: URL(string: link),
+                                                           imageCache: imageCache))
         self.contentMode = contentMode
         self.width = width
         self.height = height
