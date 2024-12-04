@@ -5,15 +5,4 @@ import SwiftUI
 enum Page: Hashable, Equatable {
     case preloader
     case main
-    
-    var view: some View {
-        Group {
-            switch self {
-            case .preloader:
-                PreloaderView()
-            case .main:
-                HomeView()
-            }
-        }
-    }
 }

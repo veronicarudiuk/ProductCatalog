@@ -6,8 +6,7 @@ import SwiftUI
 final class RootViewModel: ObservableObject {
     @Published private(set) var currentView: Page
     
-    init(conteiner: DependencyContainer = .shared) {
-        conteiner.registerClients()
+    init() {
         currentView = .preloader
     }
     

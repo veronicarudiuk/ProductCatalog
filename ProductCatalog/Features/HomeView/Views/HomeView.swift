@@ -6,15 +6,15 @@ import SwiftUI
 struct HomeView: View {
     @StateObject private var viewModel: HomeViewModel
     
-    init() {
-        _viewModel = StateObject(wrappedValue: HomeViewModel())
+    init(dummyjsonAPI: DummyjsonAPIProvider, imageCache: ImageCacheProvider) {
+        _viewModel = StateObject(wrappedValue: HomeViewModel(dummyjsonAPI: dummyjsonAPI, imageCache: imageCache))
     }
     
     var body: some View {
         main
             .setBGColor()
             .showAlert(model: $viewModel.alertModel)
-            .showProductDetailView(info: $viewModel.productToShow)
+            .showProductDetailView(info: $viewModel.productToShow, imageCache: viewModel.imageCache)
     }
     
     private var main: some View {
@@ -45,7 +45,7 @@ struct HomeView: View {
             LazyVGrid(columns: viewModel.columns, spacing: AppSizes.h4.value * 2) {
                 ForEach(viewModel.products) { product in
                     ProductGridCardView(info: product,
-                                        showProductDetailSubject: viewModel.showProductDetailSubject)
+                                        showProductDetailSubject: viewModel.showProductDetailSubject, imageCache: viewModel.imageCache)
                     .onTapGesture {
                         viewModel.showProductDetail(product)
                     }

@@ -7,6 +7,7 @@ import Combine
 struct ProductGridCardView: View {
     private(set) var info: Product
     let showProductDetailSubject: PassthroughSubject<Product, Never>
+    let imageCache: ImageCacheProvider
     
     var body: some View {
         main
@@ -52,7 +53,8 @@ struct ProductGridCardView: View {
         AsyncImage(
             link: info.images.first ?? "",
             width: 64,
-            height: 64)
+            height: 64,
+            imageCache: imageCache)
     }
     
     private var price: some View {
