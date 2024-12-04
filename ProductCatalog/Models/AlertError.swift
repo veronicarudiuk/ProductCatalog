@@ -1,8 +1,16 @@
-//
-//  AlertError.swift
-//  ProductCatalog
-//
-//  Created by Veronica Rudiuk on 04/12/2024.
-//
+import SwiftUI
 
-import Foundation
+struct AlertError: Identifiable {
+    let message: String
+    let alertButton: Alert.Button
+    
+    var id: String {
+        UUID().uuidString
+    }
+    
+    init(message: String,
+         alertButton: Alert.Button = .default(Text(alert: .ok), action: {})) {
+        self.message = message
+        self.alertButton = alertButton
+    }
+}
