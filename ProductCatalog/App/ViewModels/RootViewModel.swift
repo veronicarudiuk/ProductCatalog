@@ -7,6 +7,7 @@ final class RootViewModel: ObservableObject {
     @Published private(set) var currentView: Page
     
     init() {
+        DependencyContainer.registerClients()
         currentView = .preloader
     }
     

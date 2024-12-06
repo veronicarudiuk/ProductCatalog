@@ -6,8 +6,8 @@ import SwiftUI
 struct HomeView: View {
     @StateObject private var viewModel: HomeViewModel
     
-    init(dummyjsonAPI: DummyjsonAPIProvider, imageCache: ImageCacheProvider) {
-        _viewModel = StateObject(wrappedValue: HomeViewModel(dummyjsonAPI: dummyjsonAPI, imageCache: imageCache))
+    init() {
+        _viewModel = StateObject(wrappedValue: HomeViewModel())
     }
     
     var body: some View {
