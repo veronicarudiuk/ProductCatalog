@@ -1,9 +1,6 @@
 import SwiftUI
 
 final class Coordinator: ObservableObject {
-    
-    let container = DependencyContainer()
-    
     @Published var path = NavigationPath()
     
     func push(page: Page) {
@@ -16,7 +13,7 @@ final class Coordinator: ObservableObject {
         case .preloader:
             PreloaderView()
         case .main:
-            HomeView(dummyjsonAPI: container.dummyjsonAPIService, imageCache: container.imageCacheService)
+            HomeView()
         }
     }
 }

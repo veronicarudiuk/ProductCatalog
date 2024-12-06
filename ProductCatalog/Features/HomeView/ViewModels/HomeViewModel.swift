@@ -6,6 +6,8 @@ import Combine
 
 @MainActor
 final class HomeViewModel: ObservableObject {
+    typealias Depencies = ImageCacheDependencies & DummyjsonAPIDependencies
+    
     private let dummyjsonAPI: DummyjsonAPIProvider
     let imageCache: ImageCacheProvider
     
@@ -33,9 +35,9 @@ final class HomeViewModel: ObservableObject {
     
     private var tasks: [Task<Void, Never>] = []
     
-    init(dummyjsonAPI: DummyjsonAPIProvider, imageCache: ImageCacheProvider) {
-        self.dummyjsonAPI = dummyjsonAPI
-        self.imageCache = imageCache
+    init(container: Depencies = DependencyContainer.shared) {
+        dummyjsonAPI = container.dummyjsonAPI
+        imageCache = container.imageCache
         setupSubscriptions()
         loadProducts()
     }
