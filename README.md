@@ -1,6 +1,9 @@
 # 🛒 Product Catalog App
 
-This project is a SwiftUI-based iOS application designed to showcase products in a grid layout, featuring an intuitive user interface that supports dark and light themes as well as dynamic text resizing for accessibility. The app fetches product data from a network API, caches images efficiently, and provides a detailed product view with smooth animations and custom design elements.
+A **test project** built as part of a technical assignment for an iOS Developer role.  
+The goal was to implement a clean, modern product catalog app using **SwiftUI**, with a strong focus on **architecture, performance, accessibility**, and **user experience**.
+
+This app showcases products in a responsive grid layout, with smooth animations, support for dark/light themes, and accessibility features such as dynamic text resizing.
 
 ___
 
@@ -28,17 +31,6 @@ ___
 
 ![light mode](https://github.com/user-attachments/assets/9fc3c449-02f8-48e4-a4b7-7e26a99b0515)
 ![dark mode](https://github.com/user-attachments/assets/bcf69f28-e0f2-48c5-aed5-74dabf5fae54)
-
-### Getting Started
-
-1.	Clone the Repository:
-git clone https://github.com/veronicarudiuk/ProductCatalog.git 
-
-2.	Open the Project:
-Open ProductCatalogApp.xcodeproj in Xcode.
-
-3.	Run the App:
-Select a target device (iPhone or simulator) and press Run.
 
 ___
 
